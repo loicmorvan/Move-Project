@@ -1,7 +1,5 @@
 ﻿using Microsoft.Extensions.CommandLineUtils;
 using System;
-using System.IO;
-using System.Threading.Tasks;
 
 namespace MoveProject
 {

@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using System.Threading.Tasks;
 using static MoveProject.IO.Path;
 using static System.IO.File;
@@ -36,8 +36,6 @@ namespace MoveProject
 
             projectContent = projectContent.Replace(fromThisProjectToTheOldMovingOne, fromThisProjectToTheNewMovingOne);
             projectContent = projectContent.Replace(fromThisProjectToTheOldMovingOne2, fromThisProjectToTheNewMovingOne2);
-
-
 
             using (var file = CreateText(FullPath))
             {

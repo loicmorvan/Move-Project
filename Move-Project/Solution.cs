@@ -23,8 +23,8 @@ namespace MoveProject
 
         public async Task UpdateAsync(MovingProject project)
         {
-            var oldProjectRelativePath = GetRelativePath(_solutionPath, project.OldFullPath);
-            var newProjectRelativePath = GetRelativePath(_solutionPath, project.NewFullPath);
+            var oldProjectRelativePath = '"' + GetRelativePath(_solutionPath, project.OldFullPath) + '"';
+            var newProjectRelativePath = '"' + GetRelativePath(_solutionPath, project.NewFullPath) + '"';
 
             string solutionContent;
 
@@ -33,7 +33,12 @@ namespace MoveProject
                 solutionContent = await file.ReadToEndAsync();
             }
 
-            solutionContent = solutionContent.Replace('"' + oldProjectRelativePath + '"', '"' + newProjectRelativePath + '"');
+            if (!solutionContent.Contains(oldProjectRelativePath))
+            {
+                return;
+            }
+
+            solutionContent = solutionContent.Replace(oldProjectRelativePath, newProjectRelativePath);
 
             using (var file = CreateText(_solutionPath))
             {

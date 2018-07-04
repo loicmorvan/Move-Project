@@ -37,6 +37,8 @@ namespace MoveProject
             projectContent = projectContent.Replace(fromThisProjectToTheOldMovingOne, fromThisProjectToTheNewMovingOne);
             projectContent = projectContent.Replace(fromThisProjectToTheOldMovingOne2, fromThisProjectToTheNewMovingOne2);
 
+
+
             using (var file = CreateText(FullPath))
             {
                 await file.WriteAsync(projectContent);

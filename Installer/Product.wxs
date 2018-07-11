@@ -22,6 +22,10 @@
     <FeatureRef Id="ProductFeature" />
 
     <PropertyRef Id="WIX_IS_NETFRAMEWORK_462_OR_LATER_INSTALLED" />
+
+    <Property Id="WIXUI_INSTALLDIR"
+              Value="INSTALLDIR" />
+    <UIRef Id="WixUI_Minimal" />
   
   </Product>
 </Wix>

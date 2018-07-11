@@ -8,7 +8,7 @@
            Version="$(var.ProductVersion)"
            Manufacturer="Loic Morvan"
            UpgradeCode="$(var.UpgradeCode)">
-    
+
     <Package InstallerVersion="500"
              Compressed="yes"
              InstallScope="perMachine"
@@ -22,10 +22,9 @@
     <FeatureRef Id="ProductFeature" />
 
     <PropertyRef Id="WIX_IS_NETFRAMEWORK_462_OR_LATER_INSTALLED" />
-
-    <Property Id="WIXUI_INSTALLDIR"
-              Value="INSTALLDIR" />
-    <UIRef Id="WixUI_Minimal" />
-  
+    
+    <UIRef Id="WixUI_Mondo" />
+    <UIRef Id="WixUI_ErrorProgressText" />
+    
   </Product>
 </Wix>

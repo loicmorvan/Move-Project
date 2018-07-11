@@ -5,6 +5,7 @@
              Title="Move-Project tool"
              Level="1">
       <ComponentGroupRef Id="Move-Project tool" />
+      <ComponentGroupRef Id="CommandLineUtils"/>
     </Feature>
   </Fragment>
 </Wix>

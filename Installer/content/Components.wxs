@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <Fragment>
+    
     <ComponentGroup Id="Move-Project tool"
                     Directory="INSTALLFOLDER">
-      <Component Id="MoveProject_Executable"
+      <Component Id="Move_Project_exe_3D705312_F6FE_4162_BC9A_0441EBACEE05"
                  Guid="{3D705312-F6FE-4162-BC9A-0441EBACEE05}"
                  Win64="yes">
         <File Source="$(var.Move-Project.TargetPath)"
@@ -16,12 +17,17 @@
                      Permanent="no"
                      Value="[INSTALLFOLDER]" />
       </Component>
-      <Component Id="MoveProject_Dll"
+    </ComponentGroup>
+
+    <ComponentGroup Id="CommandLineUtils"
+                    Directory="INSTALLFOLDER">
+      <Component Id="CommandLineUtils_dll_68ABF51F_0D76_484B_BC90_C94E9D18F84D"
                  Guid="{68ABF51F-0D76-484B-BC90-C94E9D18F84D}"
                  Win64="yes">
         <File Source="$(var.Move-Project.TargetDir)Microsoft.Extensions.CommandLineUtils.dll"
               KeyPath="yes" />
       </Component>
     </ComponentGroup>
+    
   </Fragment>
 </Wix>

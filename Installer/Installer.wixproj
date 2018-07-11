@@ -7,7 +7,7 @@
     <ProductVersion>3.10</ProductVersion>
     <ProjectGuid>a069da20-6608-479d-9bab-d65ad9b696f9</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>Move-Project</OutputName>
+    <OutputName>SetupMoveProject</OutputName>
     <OutputType>Package</OutputType>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>

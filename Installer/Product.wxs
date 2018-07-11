@@ -6,7 +6,7 @@
   <?define ProductVersion="0.0.0.2"?>
 
   <Product Id="$(var.ProductCode)" Name="$(var.ProductName)" Language="1033" Version="$(var.ProductVersion)" Manufacturer="Loic Morvan" UpgradeCode="$(var.UpgradeCode)">
-    <Package InstallerVersion="500" Compressed="yes" InstallScope="perMachine" />
+    <Package InstallerVersion="500" Compressed="yes" InstallScope="perMachine" Platform="x64" />
 
     <MajorUpgrade DowngradeErrorMessage="A newer version of $(var.ProductName) is already installed." />
 
@@ -21,7 +21,7 @@
 
   <Fragment>
     <Directory Id="TARGETDIR" Name="SourceDir">
-      <Directory Id="ProgramFilesFolder">
+      <Directory Id="ProgramFiles64Folder">
         <Directory Id="INSTALLFOLDER" Name="$(var.ProductName)" />
       </Directory>
     </Directory>
@@ -29,7 +29,7 @@
 
   <Fragment>
     <ComponentGroup Id="Move-Project tool" Directory="INSTALLFOLDER">
-      <Component Id="MoveProject_Executable" Guid="{3D705312-F6FE-4162-BC9A-0441EBACEE05}">
+      <Component Id="MoveProject_Executable" Guid="{3D705312-F6FE-4162-BC9A-0441EBACEE05}" Win64="yes">
         <File Source="$(var.Move-Project.TargetPath)" KeyPath="yes" />
         <Environment Id="AddExeToPath"
                      Name="PATH"
@@ -39,7 +39,7 @@
                      Permanent="no"
                      Value="[INSTALLFOLDER]" />
       </Component>
-      <Component Id="MoveProject_Dll" Guid="{68ABF51F-0D76-484B-BC90-C94E9D18F84D}">
+      <Component Id="MoveProject_Dll" Guid="{68ABF51F-0D76-484B-BC90-C94E9D18F84D}" Win64="yes">
         <File Source="$(var.Move-Project.TargetDir)Microsoft.Extensions.CommandLineUtils.dll" KeyPath="yes" />
       </Component>
     </ComponentGroup>

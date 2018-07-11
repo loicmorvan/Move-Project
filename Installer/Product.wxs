@@ -3,34 +3,53 @@
   <?define ProductName="Move-Project"?>
   <?define UpgradeCode="{9919AF4A-B812-42E3-ABD4-CDC916C7F149}"?>
   <?define ProductCode="{1F22AD30-2A6D-499C-8190-35DBFFB045C3}"?>
-  <?define ProductVersion="0.0.0.2"?>
+  <?define ProductVersion="0.0.0.3"?>
 
-  <Product Id="$(var.ProductCode)" Name="$(var.ProductName)" Language="1033" Version="$(var.ProductVersion)" Manufacturer="Loic Morvan" UpgradeCode="$(var.UpgradeCode)">
-    <Package InstallerVersion="500" Compressed="yes" InstallScope="perMachine" Platform="x64" />
+  <Product Id="$(var.ProductCode)"
+           Name="$(var.ProductName)"
+           Language="1033"
+           Version="$(var.ProductVersion)"
+           Manufacturer="Loic Morvan"
+           UpgradeCode="$(var.UpgradeCode)">
+    
+    <Package InstallerVersion="500"
+             Compressed="yes"
+             InstallScope="perMachine"
+             Platform="x64" />
 
     <MajorUpgrade DowngradeErrorMessage="A newer version of $(var.ProductName) is already installed." />
 
-    <MediaTemplate CompressionLevel="high" EmbedCab="yes" />
+    <MediaTemplate CompressionLevel="high"
+                   EmbedCab="yes" />
 
-    <Feature Id="ProductFeature" Title="Move-Project tool" Level="1">
+    <Feature Id="ProductFeature"
+             Title="Move-Project tool"
+             Level="1">
       <ComponentGroupRef Id="Move-Project tool" />
     </Feature>
 
     <PropertyRef Id="WIX_IS_NETFRAMEWORK_462_OR_LATER_INSTALLED" />
+  
   </Product>
 
   <Fragment>
-    <Directory Id="TARGETDIR" Name="SourceDir">
+    <Directory Id="TARGETDIR"
+               Name="SourceDir">
       <Directory Id="ProgramFiles64Folder">
-        <Directory Id="INSTALLFOLDER" Name="$(var.ProductName)" />
+        <Directory Id="INSTALLFOLDER"
+                   Name="$(var.ProductName)" />
       </Directory>
     </Directory>
   </Fragment>
 
   <Fragment>
-    <ComponentGroup Id="Move-Project tool" Directory="INSTALLFOLDER">
-      <Component Id="MoveProject_Executable" Guid="{3D705312-F6FE-4162-BC9A-0441EBACEE05}" Win64="yes">
-        <File Source="$(var.Move-Project.TargetPath)" KeyPath="yes" />
+    <ComponentGroup Id="Move-Project tool"
+                    Directory="INSTALLFOLDER">
+      <Component Id="MoveProject_Executable"
+                 Guid="{3D705312-F6FE-4162-BC9A-0441EBACEE05}"
+                 Win64="yes">
+        <File Source="$(var.Move-Project.TargetPath)"
+              KeyPath="yes" />
         <Environment Id="AddExeToPath"
                      Name="PATH"
                      Part="first"
@@ -39,8 +58,11 @@
                      Permanent="no"
                      Value="[INSTALLFOLDER]" />
       </Component>
-      <Component Id="MoveProject_Dll" Guid="{68ABF51F-0D76-484B-BC90-C94E9D18F84D}" Win64="yes">
-        <File Source="$(var.Move-Project.TargetDir)Microsoft.Extensions.CommandLineUtils.dll" KeyPath="yes" />
+      <Component Id="MoveProject_Dll"
+                 Guid="{68ABF51F-0D76-484B-BC90-C94E9D18F84D}"
+                 Win64="yes">
+        <File Source="$(var.Move-Project.TargetDir)Microsoft.Extensions.CommandLineUtils.dll"
+              KeyPath="yes" />
       </Component>
     </ComponentGroup>
   </Fragment>

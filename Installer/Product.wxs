@@ -30,7 +30,7 @@
   <Fragment>
     <ComponentGroup Id="Move-Project tool" Directory="INSTALLFOLDER">
       <Component Id="MoveProject_Executable" Guid="{3D705312-F6FE-4162-BC9A-0441EBACEE05}">
-        <File Source="$(var.Move-Project.TargetDir)Move-Project.exe" KeyPath="yes" />
+        <File Source="$(var.Move-Project.TargetPath)" KeyPath="yes" />
         <Environment Id="AddExeToPath"
                      Name="PATH"
                      Part="first"

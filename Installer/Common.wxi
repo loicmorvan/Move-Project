@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <?define ProductName="Move-Project"?>
+  <?define UpgradeCode="{9919AF4A-B812-42E3-ABD4-CDC916C7F149}"?>
+  <?define ProductCode="{1F22AD30-2A6D-499C-8190-35DBFFB045C3}"?>
+  <?define ProductVersion="0.0.0.3"?>
+</Include>

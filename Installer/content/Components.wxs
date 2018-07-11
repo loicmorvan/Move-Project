@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <ComponentGroup Id="Move-Project tool"
+                    Directory="INSTALLFOLDER">
+      <Component Id="MoveProject_Executable"
+                 Guid="{3D705312-F6FE-4162-BC9A-0441EBACEE05}"
+                 Win64="yes">
+        <File Source="$(var.Move-Project.TargetPath)"
+              KeyPath="yes" />
+        <Environment Id="AddExeToPath"
+                     Name="PATH"
+                     Part="first"
+                     System="yes"
+                     Action="set"
+                     Permanent="no"
+                     Value="[INSTALLFOLDER]" />
+      </Component>
+      <Component Id="MoveProject_Dll"
+                 Guid="{68ABF51F-0D76-484B-BC90-C94E9D18F84D}"
+                 Win64="yes">
+        <File Source="$(var.Move-Project.TargetDir)Microsoft.Extensions.CommandLineUtils.dll"
+              KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

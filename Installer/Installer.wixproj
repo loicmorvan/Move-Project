@@ -40,6 +40,9 @@
     <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="content\Components.wxs" />
+    <Compile Include="content\Directories.wxs" />
+    <Compile Include="content\Features.wxs" />
     <Compile Include="Product.wxs" />
   </ItemGroup>
   <ItemGroup>
@@ -53,6 +56,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Common.wxi" />
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -63,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="L10N" />
+    <Folder Include="content" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="L10N\en-us.wxl" />

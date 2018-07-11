@@ -40,9 +40,9 @@
     <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Content2\Components.wxs" />
-    <Compile Include="Content2\Directories.wxs" />
-    <Compile Include="Content2\Features.wxs" />
+    <Compile Include="Content\Components.wxs" />
+    <Compile Include="Content\Directories.wxs" />
+    <Compile Include="Content\Features.wxs" />
     <Compile Include="Product.wxs" />
   </ItemGroup>
   <ItemGroup>
@@ -71,7 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Localization" />
-    <Folder Include="Content2" />
+    <Folder Include="Content" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Localization\en-us.wxl" />

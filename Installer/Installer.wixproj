@@ -40,9 +40,9 @@
     <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="content\Components.wxs" />
-    <Compile Include="content\Directories.wxs" />
-    <Compile Include="content\Features.wxs" />
+    <Compile Include="Content2\Components.wxs" />
+    <Compile Include="Content2\Directories.wxs" />
+    <Compile Include="Content2\Features.wxs" />
     <Compile Include="Product.wxs" />
   </ItemGroup>
   <ItemGroup>
@@ -70,11 +70,11 @@
     </WixExtension>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="L10N" />
-    <Folder Include="content" />
+    <Folder Include="Localization" />
+    <Folder Include="Content2" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="L10N\en-us.wxl" />
+    <EmbeddedResource Include="Localization\en-us.wxl" />
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" Condition=" '$(WixTargetsPath)' != '' " />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets" Condition=" '$(WixTargetsPath)' == '' AND Exists('$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets') " />

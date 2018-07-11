@@ -4,7 +4,6 @@
   <?define UpgradeCode="{9919AF4A-B812-42E3-ABD4-CDC916C7F149}"?>
   <?define ProductCode="{1F22AD30-2A6D-499C-8190-35DBFFB045C3}"?>
   <?define ProductVersion="0.0.0.2"?>
-  <?define BinariesDir="../Move-Project/bin/Release/net461/"?>
 
   <Product Id="$(var.ProductCode)" Name="$(var.ProductName)" Language="1033" Version="$(var.ProductVersion)" Manufacturer="Loic Morvan" UpgradeCode="$(var.UpgradeCode)">
     <Package InstallerVersion="500" Compressed="yes" InstallScope="perMachine" />
@@ -31,7 +30,7 @@
   <Fragment>
     <ComponentGroup Id="Move-Project tool" Directory="INSTALLFOLDER">
       <Component Id="MoveProject_Executable" Guid="{3D705312-F6FE-4162-BC9A-0441EBACEE05}">
-        <File Source="$(var.BinariesDir)Move-Project.exe" KeyPath="yes" />
+        <File Source="$(var.Move-Project.TargetDir)Move-Project.exe" KeyPath="yes" />
         <Environment Id="AddExeToPath"
                      Name="PATH"
                      Part="first"
@@ -41,7 +40,7 @@
                      Value="[INSTALLFOLDER]" />
       </Component>
       <Component Id="MoveProject_Dll" Guid="{68ABF51F-0D76-484B-BC90-C94E9D18F84D}">
-        <File Source="$(var.BinariesDir)Microsoft.Extensions.CommandLineUtils.dll" KeyPath="yes" />
+        <File Source="$(var.Move-Project.TargetDir)Microsoft.Extensions.CommandLineUtils.dll" KeyPath="yes" />
       </Component>
     </ComponentGroup>
   </Fragment>

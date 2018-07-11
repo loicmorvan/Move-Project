@@ -17,7 +17,7 @@
              InstallScope="perMachine"
              Platform="x64" />
 
-    <MajorUpgrade DowngradeErrorMessage="A newer version of $(var.ProductName) is already installed." />
+    <MajorUpgrade DowngradeErrorMessage="!(loc.AlreadyInstalled)" />
 
     <MediaTemplate CompressionLevel="high"
                    EmbedCab="yes" />

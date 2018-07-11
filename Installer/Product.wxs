@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <?define ProductName="Move-Project"?>
+  <?define UpgradeCode="{9919AF4A-B812-42E3-ABD4-CDC916C7F149}"?>
+  <?define ProductCode="{1F22AD30-2A6D-499C-8190-35DBFFB045C3}"?>
   <?define ProductVersion="0.0.0.2"?>
   <?define BinariesDir="../Move-Project/bin/Release/net461/"?>
-  
-  <Product Id="*" Name="$(var.ProductName)" Language="1033" Version="$(var.ProductVersion)" Manufacturer="Loic Morvan" UpgradeCode="9919af4a-b812-42e3-abd4-cdc916c7f149">
+
+  <Product Id="$(var.ProductCode)" Name="$(var.ProductName)" Language="1033" Version="$(var.ProductVersion)" Manufacturer="Loic Morvan" UpgradeCode="$(var.UpgradeCode)">
     <Package InstallerVersion="500" Compressed="yes" InstallScope="perMachine" />
 
-    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-    
-    <MediaTemplate />
+    <MajorUpgrade DowngradeErrorMessage="A newer version of $(var.ProductName) is already installed." />
+
+    <MediaTemplate CompressionLevel="high" EmbedCab="yes" />
 
     <Feature Id="ProductFeature" Title="Move-Project tool" Level="1">
       <ComponentGroupRef Id="Move-Project tool" />
@@ -21,7 +23,7 @@
   <Fragment>
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="ProgramFilesFolder">
-        <Directory Id="INSTALLFOLDER" Name="[ProductName]" />
+        <Directory Id="INSTALLFOLDER" Name="$(var.ProductName)" />
       </Directory>
     </Directory>
   </Fragment>

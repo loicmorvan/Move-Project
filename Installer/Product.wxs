@@ -1,30 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="*" Name="Installer" Language="1033" Version="1.0.0.0" Manufacturer="" UpgradeCode="9919af4a-b812-42e3-abd4-cdc916c7f149">
-		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+  <Product Id="*" Name="Move-Project" Language="1033" Version="0.0.0.1" Manufacturer="Loic Morvan" UpgradeCode="9919af4a-b812-42e3-abd4-cdc916c7f149">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
-		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-		<MediaTemplate />
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate />
 
-		<Feature Id="ProductFeature" Title="Installer" Level="1">
-			<ComponentGroupRef Id="ProductComponents" />
-		</Feature>
-	</Product>
+    <Feature Id="ProductFeature" Title="Move-Project tool" Level="1">
+      <ComponentGroupRef Id="Move-Project tool" />
+    </Feature>
+  </Product>
 
-	<Fragment>
-		<Directory Id="TARGETDIR" Name="SourceDir">
-			<Directory Id="ProgramFilesFolder">
-				<Directory Id="INSTALLFOLDER" Name="Installer" />
-			</Directory>
-		</Directory>
-	</Fragment>
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="Move-Project" />
+      </Directory>
+    </Directory>
+  </Fragment>
 
-	<Fragment>
-		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
-			<!-- <Component Id="ProductComponent"> -->
-				<!-- TODO: Insert files, registry keys, and other resources here. -->
-			<!-- </Component> -->
-		</ComponentGroup>
-	</Fragment>
+  <Fragment>
+    <ComponentGroup Id="Move-Project tool" Directory="INSTALLFOLDER">
+      <Component Id="MoveProject_Executable" Guid="{3D705312-F6FE-4162-BC9A-0441EBACEE05}">
+        <File Source="../Move-Project/bin/Release/net461/Move-Project.exe" KeyPath="yes" />
+        <Environment Id="Environment"
+                     Name="PATH"
+                     Part="first"
+                     System="yes"
+                     Action="set"
+                     Permanent="no"
+                     Value="[INSTALLFOLDER]" />
+      </Component>
+      <Component Id="MoveProject_Dll" Guid="{68ABF51F-0D76-484B-BC90-C94E9D18F84D}">
+        <File Source="../Move-Project/bin/Release/net461/Microsoft.Extensions.CommandLineUtils.dll" KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
 </Wix>
